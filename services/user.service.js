@@ -1,5 +1,6 @@
 const { faker } = require('@faker-js/faker');
 const boom = require('@hapi/boom');
+const { number } = require('joi');
 
 class userService {
 
@@ -14,7 +15,7 @@ class userService {
             this.user.push({
                 id: faker.datatype.uuid(),
                 avatar: faker.image.avatar(),
-                birthday: faker.date.birthdate(),
+                birthday: faker.date.birthdate({refDate: number }),
                 email: faker.internet.email(),
                 firstName: faker.name.firstName(),
                 lastName: faker.name.lastName(),
